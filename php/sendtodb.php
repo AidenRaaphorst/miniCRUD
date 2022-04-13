@@ -10,7 +10,7 @@
         $stmt -> bindParam(":price", $_POST["price"]);
         $stmt -> bindParam(":category", $_POST["category"]);
         $stmt -> bindParam(":amount", $_POST["amount"]);
-        $stmt -> bindParam(":imagelink", $_POST["imagelink"]);
+        $stmt -> bindParam(":imagelink", $_FILES['photo']['name']);
 
         $stmt -> execute();
     }

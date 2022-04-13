@@ -34,8 +34,8 @@ include_once("php/connect.php");
 				<div class="panel">
 					<!-- Sorting Options -->
 					<form action="admin.php" method="post">
-						<label for="sort-by">Sort by: </label>
-						<select name="sort-by">
+						<label for="sortby">Sort by: </label>
+						<select name="sortby">
 							<option value="id">ID</option>
 							<option value="name">Name</option>
 							<option value="price">Price</option>
@@ -43,10 +43,10 @@ include_once("php/connect.php");
 							<option value="amount">Amount</option>
 						</select>
 						<br>
-						<input type="radio" id="asc" name="asc-desc" value="ASC" checked>
+						<input type="radio" id="asc" name="ascdesc" value="ASC" checked>
 						<label for="asc">Ascending</label>
 						<br>
-						<input type="radio" id="desc" name="asc-desc" value="DESC">
+						<input type="radio" id="desc" name="ascdesc" value="DESC">
 						<label for="desc">Descending</label>
 						<br>
 
@@ -115,7 +115,7 @@ include_once("php/connect.php");
 							}} else {
 							// Create items 
 						?>
-							<form action="php/sendtodb.php" method="post">
+							<form action="php/sendtodb.php" method="post" enctype="multipart/form-data">
 								<table>
 									<tr>
 										<td><p>ID:</p></td>
@@ -164,12 +164,7 @@ include_once("php/connect.php");
 
 						<?php
 							if(isset($_POST["sort"])) {
-								$sql = "SELECT * FROM menu ORDER BY {$_POST['sort-by']} {$_POST['asc-desc']}";
-								// $sql = "SELECT * FROM menu ORDER BY :sortby asc";
-								// $stmt = $connect -> prepare($sql);
-
-								// $stmt->bindParam(":sortby", $_POST["sort-by"]);
-								// $stmt->bindParam(":ascdesc", $_POST["asc-desc"]);
+								$sql = "SELECT * FROM menu ORDER BY {$_POST['sortby']} {$_POST['ascdesc']}";
 							} else {
 								$sql = "SELECT * FROM menu";
 							}

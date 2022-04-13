@@ -54,7 +54,7 @@ registerButton.addEventListener("click", (e) => {
 	if (registerPassword1.value.length < 8) {
 		msg += "Wachtwoord is te kort (minimaal 8 tekens)\n";
 	}
-	if (registerPassword2.value.length != registerPassword1.value) {
+	if (registerPassword2.value != registerPassword1.value) {
 		msg += "Wachtwoorden zijn niet hetzelfde\n";
 	}
 

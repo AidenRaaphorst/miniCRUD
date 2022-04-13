@@ -1,11 +1,14 @@
 <?php session_start(); ?>
 
 <header>
-	<a href="index.php"><h2>New York Pizza</h2></a>
+	<a href="index.php" id="title"><h2>New York Pizza</h2></a>
 	<div class="account-details">
 		<?php
 			if(isset($_SESSION["userinfo"])) {
-				echo "<h3>".$_SESSION["userinfo"]["name"]."</h3>";
+				if($_SESSION["userinfo"]["admin"] == 1) { ?>
+					<a href="admin.php"><h3>Admin Panel</h3></a>
+			<?php }
+				echo "<h3 class='header-text'>".$_SESSION["userinfo"]["name"]."</h3>";
 			} else {
 				echo "<h3>Account</h3>";
 			}
@@ -15,7 +18,7 @@
 			<i class="fa-solid fa-user"></i>
 		</div>
 
-		<h3 id="cart-text">Winkelwagen</h3>
+		<h3 class="header-text">Winkelwagen</h3>
 		<div class="cart toggle" title="Winkelwagen" data-toggle=".shopping-cart">
 			<i class="fa-solid fa-cart-shopping"></i>
 		</div>
@@ -34,10 +37,10 @@
 				
 				<div class="account-buttons">
 					<!-- <a href="loginreg.php"><button class="button">Inloggen</button></a> -->
-					<button>Test1</button>
-					<button>Test2</button>
-					<button>Test3</button>
-					<button>Test4</button>
+					<a href="php/logout.php"><button class="button">Log out</button></a>
+					<a href="/miniCRUD/bestellingen.php"><button class="button">Bestellingen</button></a>
+					<button class="button">Test3</button>
+					<button class="button">Test4</button>
 				</div>
 			<?php } else { ?>
 				<div class="account-profile">

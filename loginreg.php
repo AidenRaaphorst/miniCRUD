@@ -57,19 +57,19 @@ include_once("php/connect.php");
 				<div class="title">
 					<h2>Registreren</h2>
 				</div>
-				<form action="php/checkAcc.php" method="post">
+				<form action="php/register.php" method="post">
 					<div class="container">
 						<div class="left">
 							<div class="name">
 								<label for="full-name">Volledige naam:</label>
-								<input type="text" name="full-name" placeholder="John Doe" />
+								<input type="text" name="name" placeholder="John Doe" />
 							</div>
 							
 							<div class="shipping-info">
 								<label for="postalcode">Postcode:</label>
 								<input type="text" name="postalcode" placeholder="1234AB" />
 								<label for="street-num">Huisnummer:</label>
-								<input type="text" name="street-num" id="testing" placeholder="12" />
+								<input type="text" name="streetnum" id="testing" placeholder="12" />
 							</div>
 						</div>
 

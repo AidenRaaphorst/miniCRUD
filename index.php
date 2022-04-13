@@ -23,29 +23,26 @@ include_once("php/connect.php");
 
 		<!-- Main -->
 		<main class="long">
-			<!-- <?php
-				if(isset($_POST["login-button"])) {
-					echo "<h2>Login Info</h2>";
-					echo "<h3>".$_POST["email"]."</h3>";
-					echo "<h3>".$_POST["password"]."</h3>";
-				}
-
-				if(isset($_POST["register-button"])) {
-					echo "<h2>Register Info</h2>";
-					echo "<h3>".$_POST["full-name"]."</h3>";
-					echo "<h3>".$_POST["street-num"]."</h3>";
-					echo "<h3>".$_POST["postalcode"]."</h3>";
-					echo "<h3>".$_POST["email"]."</h3>";
-					echo "<h3>".$_POST["password"]."</h3>";
-					echo "<h3>".$_POST["password-repeat"]."</h3>";
-				} ?> -->
-
-			<h2>Pizza's</h2>
+			
+			<div class="title-search">
+				<h2>Menu</h2>
+				<form class="search" action="index.php" method="get">
+					<input type="text" name="search" placeholder="Search...">
+					<button type="submit">Search</button>
+				</form>
+			</div>
 			<div class="items">
 				<?php
-					// $sql = "SELECT * FROM menu WHERE category = 'pizza'";
-					$sql = "SELECT * FROM menu";
-					$stmt = $connect -> prepare($sql);
+					if(isset($_GET["search"])) {
+						$search = "%".$_GET['search']."%";
+						$sql = "SELECT * FROM menu WHERE name LIKE :search";
+						$stmt = $connect -> prepare($sql);
+						$stmt -> bindParam(":search", $search);
+					} else {
+						$sql = "SELECT * FROM menu";
+						$stmt = $connect -> prepare($sql);
+					}
+
 					$stmt -> execute();
 					$result = $stmt -> fetchAll();
 
