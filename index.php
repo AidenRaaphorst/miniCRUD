@@ -27,8 +27,8 @@ include_once("php/connect.php");
 			<div class="title-search">
 				<h2>Menu</h2>
 				<form class="search" action="index.php" method="get">
-					<input type="text" name="search" placeholder="Search...">
-					<button type="submit">Search</button>
+					<input type="text" name="search" placeholder="Zoek iets?">
+					<button type="submit">Zoeken</button>
 				</form>
 			</div>
 			<div class="items">
