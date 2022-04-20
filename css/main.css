@@ -1,5 +1,6 @@
 :root {
 	--color0: rgb(13, 153, 25);
+	--color1: rgb(221, 221, 221);
 }
 
 * {
@@ -170,7 +171,7 @@ header #title {
 main {
 	height: 80vh;
 	margin-top: 10vh;
-	background-color: white;
+	background-color: var(--color1);
 }
 
 main.long {
@@ -236,6 +237,8 @@ tr,
 th,
 td {
 	padding: 5px;
+	word-wrap: break-word;
+	max-width: 500px;
 }
 
 .database tr:nth-child(even) {
@@ -247,6 +250,7 @@ td {
 	flex-direction: row;
 	flex-wrap: wrap;
 	width: 100%;
+	padding-bottom: 20px;
 	/* background-color: burlywood; */
 }
 

@@ -11,7 +11,6 @@
         $idIsDuplicate = false;
 
         // Zoek of het item al in de winkelwagen zit, zo ja, dan wordt het aantal +1.
-
         foreach($_SESSION["winkelwagen"] as $key => $value) {
             if($id == $value["id"]) {
                 $new_amount = $value["amount"] + 1;

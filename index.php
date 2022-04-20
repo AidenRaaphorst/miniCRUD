@@ -23,50 +23,141 @@ include_once("php/connect.php");
 
 		<!-- Main -->
 		<main class="long">
-			
 			<div class="title-search">
 				<h2>Menu</h2>
 				<form class="search" action="index.php" method="get">
-					<input type="text" name="search" placeholder="Search...">
-					<button type="submit">Search</button>
+					<input type="text" name="search" placeholder="Zoek iets?">
+					<button type="submit">Zoeken</button>
 				</form>
 			</div>
-			<div class="items">
-				<?php
-					if(isset($_GET["search"])) {
-						$search = "%".$_GET['search']."%";
-						$sql = "SELECT * FROM menu WHERE name LIKE :search";
-						$stmt = $connect -> prepare($sql);
-						$stmt -> bindParam(":search", $search);
-					} else {
-						$sql = "SELECT * FROM menu";
-						$stmt = $connect -> prepare($sql);
-					}
 
-					$stmt -> execute();
-					$result = $stmt -> fetchAll();
-
-					foreach($result as $res) {
-						if($res["amount"] <= 0) {
-							continue;
+			<!-- Pizzas -->
+			<div class="pizzas">
+				<h3 class="category">Pizza's</h3>
+				<div class="items">
+					<?php
+						if(isset($_GET["search"])) {
+							$search = "%".$_GET['search']."%";
+							$sql = "SELECT * FROM menu WHERE category = 'Pizza' AND name LIKE :search";
+							$stmt = $connect -> prepare($sql);
+							$stmt -> bindParam(":search", $search);
+						} else {
+							$sql = "SELECT * FROM menu WHERE category = 'Pizza'";
+							$stmt = $connect -> prepare($sql);
 						}
-				?>
-
-				<div class="item-box">
-					<div class="item-name">
-						<h3><?php echo $res["name"]; ?></h3>
+	
+						$stmt -> execute();
+						$result = $stmt -> fetchAll();
+	
+						foreach($result as $res) {
+							if($res["amount"] <= 0) {
+								continue;
+							}
+					?>
+	
+					<div class="item-box">
+						<div class="item-name">
+							<h3><?php echo $res["name"]; ?></h3>
+						</div>
+						<div class="item-img">
+							<!-- <img src="img/<?php echo $res["imagelink"]; ?>"> -->
+							<img src="<?php echo $res["imagelink"]; ?>">
+						</div>
+						<div class="item-desc">
+							<p>€<?php echo $res["price"] ?></p>
+							<a href="php/addToCart.php?id=<?php echo $res["id"]; ?>"><button>Kopen</button></a>
+						</div>
 					</div>
-					<div class="item-img">
-						<img src="img/<?php echo $res["imagelink"]; ?>">
-					</div>
-					<div class="item-desc">
-						<p>€<?php echo $res["price"] ?></p>
-						<a href="php/addToCart.php?id=<?php echo $res["id"]; ?>"><button>Kopen</button></a>
-					</div>
+					
+					<?php } ?>
+	
 				</div>
-				
-				<?php } ?>
+			</div>
 
+			<!-- Drinken -->
+			<div class="drinken">
+				<h3 class="category">Drinken</h3>
+				<div class="items">
+					<?php
+						if(isset($_GET["search"])) {
+							$search = "%".$_GET['search']."%";
+							$sql = "SELECT * FROM menu WHERE category = 'Drinken' AND name LIKE :search";
+							$stmt = $connect -> prepare($sql);
+							$stmt -> bindParam(":search", $search);
+						} else {
+							$sql = "SELECT * FROM menu WHERE category = 'Drinken'";
+							$stmt = $connect -> prepare($sql);
+						}
+	
+						$stmt -> execute();
+						$result = $stmt -> fetchAll();
+	
+						foreach($result as $res) {
+							if($res["amount"] <= 0) {
+								continue;
+							}
+					?>
+	
+					<div class="item-box">
+						<div class="item-name">
+							<h3><?php echo $res["name"]; ?></h3>
+						</div>
+						<div class="item-img">
+							<!-- <img src="img/<?php echo $res["imagelink"]; ?>"> -->
+							<img src="<?php echo $res["imagelink"]; ?>">
+						</div>
+						<div class="item-desc">
+							<p>€<?php echo $res["price"] ?></p>
+							<a href="php/addToCart.php?id=<?php echo $res["id"]; ?>"><button>Kopen</button></a>
+						</div>
+					</div>
+					
+					<?php } ?>
+	
+				</div>
+			</div>
+
+			<!-- Eten -->
+			<div class="eten">
+				<h3 class="category">Eten</h3>
+				<div class="items">
+					<?php
+						if(isset($_GET["search"])) {
+							$search = "%".$_GET['search']."%";
+							$sql = "SELECT * FROM menu WHERE category = 'Eten' AND name LIKE :search";
+							$stmt = $connect -> prepare($sql);
+							$stmt -> bindParam(":search", $search);
+						} else {
+							$sql = "SELECT * FROM menu WHERE category = 'Eten'";
+							$stmt = $connect -> prepare($sql);
+						}
+	
+						$stmt -> execute();
+						$result = $stmt -> fetchAll();
+	
+						foreach($result as $res) {
+							if($res["amount"] <= 0) {
+								continue;
+							}
+					?>
+	
+					<div class="item-box">
+						<div class="item-name">
+							<h3><?php echo $res["name"]; ?></h3>
+						</div>
+						<div class="item-img">
+							<!-- <img src="img/<?php echo $res["imagelink"]; ?>"> -->
+							<img src="<?php echo $res["imagelink"]; ?>">
+						</div>
+						<div class="item-desc">
+							<p>€<?php echo $res["price"] ?></p>
+							<a href="php/addToCart.php?id=<?php echo $res["id"]; ?>"><button>Kopen</button></a>
+						</div>
+					</div>
+					
+					<?php } ?>
+	
+				</div>
 			</div>
 		</main>
 

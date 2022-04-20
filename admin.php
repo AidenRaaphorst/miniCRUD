@@ -69,11 +69,9 @@ include_once("php/connect.php");
 
 									header("Location: admin.php");
 								}
-							} else{
+							} else {
 								// Update items
-								$sql = "SELECT * 
-										FROM menu 
-										WHERE id = :id";
+								$sql = "SELECT * FROM menu WHERE id = :id";
 								$stmt = $connect -> prepare($sql);
 								$stmt -> bindParam(":id", $_GET["id"]);
 								$stmt -> execute();
@@ -103,8 +101,10 @@ include_once("php/connect.php");
 												<td><input type="text" name="amount" value="<?php echo $res["amount"] ?>" placeholder="123"></td>
 											</tr>
 											<tr>
-												<td><p>Foto:</p></td>
-												<td><input type="file" name="photo" accept=".png, .jpg, .jpeg"></td>
+												<!-- <td><p>Foto:</p></td>
+												<td><input type="file" name="photo" accept=".png, .jpg, .jpeg"></td> -->
+												<td><p>Link naar foto:</p></td>
+												<td><input type="text" name="imagelink" value="<?php echo $res["imagelink"] ?>"></td>
 											</tr>
 										</table>
 
@@ -112,8 +112,8 @@ include_once("php/connect.php");
 									</form>
 								<?php 
 								}
-							}} else {
-							// Create items 
+						}} else {
+						// Create items 
 						?>
 							<form action="php/sendtodb.php" method="post" enctype="multipart/form-data">
 								<table>
@@ -138,8 +138,10 @@ include_once("php/connect.php");
 										<td><input type="text" name="amount" placeholder="123"></td>
 									</tr>
 									<tr>
-										<td><p>Foto:</p></td>
-										<td><input type="file" name="photo" accept=".png, .jpg, .jpeg"></td>
+										<!-- <td><p>Foto:</p></td>
+										<td><input type="file" name="photo" accept=".png, .jpg, .jpeg"></td> -->
+										<td><p>Link naar foto:</p></td>
+										<td><input type="text" name="imagelink"></td>
 									</tr>
 								</table>
 
