@@ -146,7 +146,6 @@ include_once("php/connect.php");
 							<h3><?php echo $res["name"]; ?></h3>
 						</div>
 						<div class="item-img">
-							<!-- <img src="img/<?php echo $res["imagelink"]; ?>"> -->
 							<img src="<?php echo $res["imagelink"]; ?>">
 						</div>
 						<div class="item-desc">

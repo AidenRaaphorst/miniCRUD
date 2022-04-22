@@ -246,6 +246,12 @@ td {
 	background-color: darkgrey;
 }
 
+.pizzas,
+.drinken,
+.eten {
+	padding: 5px;
+}
+
 .items {
 	display: flex;
 	flex-direction: row;
