@@ -82,7 +82,7 @@ include_once("php/connect.php");
 										<table>
 											<tr>
 												<td><p>ID:</p></td>
-												<td><input type="text" name="id" value="<?php echo $res["id"] ?>" placeholder="12, laat leeg voor automatisch"></td>
+												<td><input type="text" name="id" value="<?php echo $res["id"] ?>" placeholder="id" readonly></td>
 											</tr>
 											<tr>
 												<td><p>Naam:</p></td>
@@ -119,7 +119,7 @@ include_once("php/connect.php");
 								<table>
 									<tr>
 										<td><p>ID:</p></td>
-										<td><input type="text" name="id" placeholder="12, laat leeg voor automatisch"></td>
+										<td><input type="text" name="id" placeholder="id" readonly></td>
 									</tr>
 									<tr>
 										<td><p>Naam:</p></td>

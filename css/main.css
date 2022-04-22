@@ -177,6 +177,7 @@ main {
 main.long {
 	height: auto;
 	min-height: 80vh;
+	overflow: auto;
 }
 
 main.flex {
@@ -204,7 +205,7 @@ main.flex {
 .admin-panel {
 	display: flex;
 	flex-direction: row;
-	border-right: 1px solid rgba(0, 0, 0, 0.5);
+	border-left: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .panel {
@@ -238,7 +239,7 @@ th,
 td {
 	padding: 5px;
 	word-wrap: break-word;
-	max-width: 500px;
+	max-width: 450px;
 }
 
 .database tr:nth-child(even) {
