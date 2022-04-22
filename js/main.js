@@ -27,7 +27,7 @@ loginButton.addEventListener("click", (e) => {
 
 	let msg = "";
 
-	if (loginPassword.value === "" || loginPassword.value.length < 8) {
+	if (loginPassword.value.length < 8) {
 		msg += "Wachtwoord is te kort (minimaal 8 tekens)\n";
 	}
 
